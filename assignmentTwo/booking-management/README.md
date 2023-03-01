@@ -3,7 +3,7 @@
 ### এসাইনমেন্ট এ আপনাকে যা যা করতে হবেঃ
 ✓ প্রজেক্টটি React-redux দিয়ে করতে হবে।
 
-✓ Destination From, Destination To, Journey Date, Guests, Class সবগুলো ফিলাপ করে Book বাটনে ক্লিক করলে ডাটা গুলো Redux store এ সেভ হবে ।
+✓ Destination From, Destination To, Journey Date, Guests, Class সবগুলো ফিলাপ করে Book বাটনে ক্লিক করলে ডাটা গুলো Redux store এ সেভ হবে।
 
 ✓ Redux store থেকে ডাটা গুলো নিয়ে এসে টেবিলে দেখাতে হবে।
 

@@ -1,13 +1,14 @@
 import React from 'react';
-import AddProduct from './AddProduct';
-import ShowProduct from './ShowProduct';
+import AddProductAndBill from './AddProductAndBill';
+import ShowProductAndCart from './ShowProductAndCart';
+
 
 const Products = () => {
   return (
     <div className='py-16'>
       <div className='productWrapper'>
-        <ShowProduct/>
-        <AddProduct/>
+        <AddProductAndBill/>
+        <ShowProductAndCart/>
       </div>
     </div>
   );

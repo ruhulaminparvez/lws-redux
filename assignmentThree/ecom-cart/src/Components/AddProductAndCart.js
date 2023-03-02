@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddProductAndBill = () => {
+const AddProductAndCart = () => {
   return (
     <>
         {/*  Product Input Form */}
@@ -83,4 +83,4 @@ const AddProductAndBill = () => {
   );
 };
 
-export default AddProductAndBill;
+export default AddProductAndCart;

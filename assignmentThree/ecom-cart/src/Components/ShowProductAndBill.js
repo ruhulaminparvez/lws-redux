@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShowProductAndCart = () => {
+const ShowProductAndBill = () => {
   return (
     <>
       {/*  products container */}
@@ -71,4 +71,4 @@ const ShowProductAndCart = () => {
   );
 };
 
-export default ShowProductAndCart;
+export default ShowProductAndBill;

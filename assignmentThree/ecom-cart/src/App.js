@@ -1,10 +1,14 @@
 import './App.css';
+import Navbar from './Components/Navbar';
+import './Assets/styles/output.css';
+import Products from './Components/Products';
 
 function App() {
   return (
-    <div>
-      <h1>Assignment 3</h1>
-    </div>
+    <>
+      <Navbar/>
+      <Products/>
+    </>
   );
 }
 

@@ -1,39 +1,34 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 const ShowProductAndBill = () => {
+  const products = useSelector((state) => state.product.products);
+  console.log(products);
+
   return (
     <>
       {/*  products container */}
       <div className="productContainer" id="lws-productContainer">
         {/* product item */}
-        <div className="lws-productCard">
-          <img className="lws-productImage" src="https://i.dummyjson.com/data/products/59/thumbnail.jpg" alt="product" />
-          <div className="p-4 space-y-2">
-            <h4 className="lws-productName">Spring and summershoes</h4>
-            <p className="lws-productCategory">Mens shoes</p>
-            <div className="flex items-center justify-between pb-2">
-              <p className="productPrice">BDT <span className="lws-price">400</span></p>
-              <p className="productQuantity">QTY <span className="lws-quantity">10</span></p>
-            </div>
-            <button className="lws-btnAddToCart">Add To Cart</button>
-          </div>
-        </div>
-        {/*  product item ends */}
-
-        {/*  product item */}
-        <div className="lws-productCard">
-          <img className="lws-productImage" src="https://i.dummyjson.com/data/products/40/thumbnail.jpg" alt="product" />
-          <div className="p-4 space-y-2">
-            <h4 className="lws-productName">Women Winter Clothes</h4>
-            <p className="lws-productCategory">Tops</p>
-            <div className="flex items-center justify-between pb-2">
-              <p className="productPrice">BDT <span className="lws-price">100</span></p>
-              <p className="productQuantity">QTY <span className="lws-quantity">30</span></p>
-            </div>
-            <button className="lws-btnAddToCart">Add To Cart</button>
-          </div>
-        </div>
-        {/*  product item ends */}
+        {
+          products.length > 0 ? products.map((product, idx) => {
+            return (
+              <div className="lws-productCard" key={idx+1}>
+                <img className="lws-productImage" src={product.productImage} alt={product.productName} />
+                <div className="p-4 space-y-2">
+                  <h4 className="lws-productName">{product.productName}</h4>
+                  <p className="lws-productCategory">{product.productCategory}</p>
+                  <div className="flex items-center justify-between pb-2">
+                    <p className="productPrice">BDT <span className="lws-price">{product.productPrice}</span></p>
+                    <p className="productQuantity">QTY <span className="lws-quantity">{product.productQuantity}</span></p>
+                  </div>
+                  <button className="lws-btnAddToCart">Add To Cart</button>
+                </div>
+              </div>
+            )
+          }) : <h1>No Product Found</h1>
+        }
       </div>
       {/* products container ends */}
 

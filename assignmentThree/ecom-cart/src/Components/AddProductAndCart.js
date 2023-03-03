@@ -1,6 +1,22 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../redux/actions/productSlice';
 
 const AddProductAndCart = () => {
+  const [productName, setProductName] = React.useState('');
+  const [productCategory, setProductCategory] = React.useState('');
+  const [productImage, setProductImage] = React.useState('');
+  const [productPrice, setProductPrice] = React.useState('');
+  const [productQuantity, setProductQuantity] = React.useState('');
+  const dispatch = useDispatch();
+
+  const handleProductSubmit = (e) => {
+    e.preventDefault();
+    const newProduct = { productName, productCategory, productImage, productPrice, productQuantity };
+    console.log(newProduct);
+    dispatch(addProduct(newProduct));
+  }
+
   return (
     <>
         {/*  Product Input Form */}
@@ -10,33 +26,34 @@ const AddProductAndCart = () => {
             {/*  product name */}
             <div className="space-y-2">
               <label htmlFor="lws-inputName">Product Name</label>
-              <input className="addProductInput" id="lws-inputName" type="text" required />
+              <input className="addProductInput" id="lws-inputName" type="text" required onChange={(e) => { setProductName(e.target.value) }} />
             </div>
             {/*  product category */}
             <div className="space-y-2">
               <label htmlFor="lws-inputCategory">Category</label>
-              <input className="addProductInput" id="lws-inputCategory" type="text" required />
+              <input className="addProductInput" id="lws-inputCategory" type="text" required onChange={(e) => { setProductCategory(e.target.value) }}/>
             </div>
             {/*  product image url */}
             <div className="space-y-2">
               <label htmlFor="lws-inputImage">Image Url</label>
-              <input className="addProductInput" id="lws-inputImage" type="text" required />
+              <input className="addProductInput" id="lws-inputImage" type="text" required onChange={(e) => { setProductImage(e.target.value) }}/>
             </div>
             {/*  price & quantity container */}
             <div className="grid grid-cols-2 gap-8 pb-4">
               {/*  price */}
               <div className="space-y-2">
                 <label htmlFor="ws-inputPrice">Price</label>
-                <input className="addProductInput" type="number" id="lws-inputPrice" required />
+                <input className="addProductInput" type="number" id="lws-inputPrice" required onChange={(e) => { setProductPrice(e.target.value) }}/>
               </div>
               {/*  quantity */}
               <div className="space-y-2">
                 <label htmlFor="lws-inputQuantity">Quantity</label>
-                <input className="addProductInput" type="number" id="lws-inputQuantity" required />
+                <input className="addProductInput" type="number" id="lws-inputQuantity" required onChange={(e) => { setProductQuantity(e.target.value) }}/>
               </div>
             </div>
             {/*  submit button */}
-            <button type="submit" id="lws-inputSubmit" className="submit">Add Product</button>
+            <button type="submit" id="lws-inputSubmit" className="submit"
+            onClick={(e) => {handleProductSubmit(e)}}>Add Product</button>
           </form>
         </div>
         {/*  Product Input Form Ends */}

@@ -1,10 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from "../redux/actions/cartSlice";
 
 const ShowProductAndBill = () => {
   const products = useSelector((state) => state.product.products);
   const showContent = useSelector((state) => state.showContent.showContent);
+  const dispatch = useDispatch();
+
+    const handleAddToCart = (e, product) => {
+        e.preventDefault();
+        console.log(product);
+        dispatch(addToCart(product));
+    }
 
   return (
     <>
@@ -48,7 +55,9 @@ const ShowProductAndBill = () => {
                       <p className="productPrice">BDT <span className="lws-price">{product.productPrice}</span></p>
                       <p className="productQuantity">QTY <span className="lws-quantity">{product.productQuantity}</span></p>
                     </div>
-                    <button className="lws-btnAddToCart">Add To Cart</button>
+                    <button className="lws-btnAddToCart"
+                    onClick={(e) => handleAddToCart(e, product)}
+                    >Add To Cart</button>
                   </div>
                 </div>
             )

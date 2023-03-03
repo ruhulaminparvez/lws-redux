@@ -1,7 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector  } from 'react-redux';
 import { addProduct } from '../redux/actions/productSlice';
-import { useSelector } from 'react-redux';
 
 const AddProductAndCart = () => {
   const [productName, setProductName] = React.useState('');
@@ -11,6 +10,10 @@ const AddProductAndCart = () => {
   const [productQuantity, setProductQuantity] = React.useState('');
   const dispatch = useDispatch();
   const showContent = useSelector((state) => state.showContent.showContent);
+  const cart = useSelector((state) => state.cart.cart);
+  const total = useSelector((state) => state.cart.total);
+  console.log("cart", cart);
+  console.log("total", total);
 
   const handleProductSubmit = (e) => {
     e.preventDefault();

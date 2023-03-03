@@ -1,11 +1,13 @@
 import React from 'react';
 import logo from '../Assets/images/logo.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { showContent } from "../redux/actions/showContent";
 
 const Navbar = () => {
   const [clickCart, setClickCart] = React.useState(false);
   const dispatch = useDispatch();
+  const counter = useSelector((state) => state.cart.counter);
+
   const handleViewChange = (e) => {
     e.preventDefault();
     dispatch(showContent(setClickCart(!clickCart)));
@@ -22,7 +24,7 @@ const Navbar = () => {
             <a href="/" className="navHome" id="lws-home"> Home </a>
             <a href="/" className="navCart" id="lws-cart" onClick={(e) => handleViewChange(e)}>
               <i className="text-xl fa-sharp fa-solid fa-bag-shopping"></i>
-              <span id="lws-totalCart">0</span>
+              <span id="lws-totalCart">{counter > 0 ? counter : '0'}</span>
             </a>
           </div>
         </div>

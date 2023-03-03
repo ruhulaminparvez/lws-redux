@@ -6,6 +6,7 @@ const ShowProductAndBill = () => {
   const products = useSelector((state) => state.product.products);
   const showContent = useSelector((state) => state.showContent.showContent);
   const dispatch = useDispatch();
+  const total = useSelector((state) => state.cart.total);
 
     const handleAddToCart = (e, product) => {
         e.preventDefault();
@@ -22,7 +23,7 @@ const ShowProductAndBill = () => {
                 {/*  sub total  */}
                 <div className="flex items-center justify-between">
                   <p>Sub Total</p>
-                  <p>BDT <span className="lws-subtotal">8800</span></p>
+                  <p>BDT <span className="lws-subtotal">{total}</span></p>
                 </div>
                 {/*  Discount  */}
                 <div className="flex items-center justify-between">
@@ -37,7 +38,7 @@ const ShowProductAndBill = () => {
                 {/*  Total  */}
                 <div className="flex items-center justify-between pb-4">
                   <p className="font-bold">TOTAL</p>
-                  <p className="font-bold">BDT <span className="lws-total">8800</span></p>
+                  <p className="font-bold">BDT <span className="lws-total">{total}</span></p>
                 </div>
                 <button className="placeOrderbtn">place order</button>
               </div>
